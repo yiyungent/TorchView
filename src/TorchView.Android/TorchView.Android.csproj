@@ -51,6 +51,7 @@
     <Compile Include="Components\HybridWebViewRenderer.cs" />
     <Compile Include="Components\JavascriptWebViewClient.cs" />
     <Compile Include="Components\JSBridge.cs" />
+    <Compile Include="Components\MyWebChromeClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
