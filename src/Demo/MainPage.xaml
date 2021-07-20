@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.MainPage"
+             xmlns:com="clr-namespace:TorchView.Components;assembly=TorchView">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Welcome to TorchView !" FontSize="16" BackgroundColor="LightBlue"></Label>
+
+        <com:HybridWebView x:Name="hybridWebView" Uri="http://localhost:12531/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
+    </StackLayout>
+
+</ContentPage>
