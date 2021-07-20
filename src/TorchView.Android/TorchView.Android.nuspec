@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>TorchView.Android</id>
-    <version>0.1.0</version>
+    <version>0.1.3</version>
     <title>TorchView.Android</title>
     <authors>yiyun</authors>
     <owners>yiyun</owners>
@@ -15,8 +15,11 @@
     <copyright>Copyright (c) 2021-present yiyun</copyright>
     <tags>Xamarin Vue.js Hybrid</tags>
 	<dependencies>
-    <dependency id="TorchView" version="0.1.0" />
-  </dependencies>
+		<dependency id="TorchView" version="0.1.0" />
+	</dependencies>
+	<frameworkAssemblies>
+		<frameworkAssembly assemblyName="Mono.Android.Export" targetFramework="monoandroid90" />
+	</frameworkAssemblies>
   </metadata>
   <files>
     <file src="bin\Release\TorchView.Android.dll" target="lib" />

@@ -2,11 +2,11 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using TorchView.Components;
-using TorchView.Droid.Components;
+using TorchView4Droid.Components;
 
 // 使用该[Export]属性的Android 项目必须包含对 的引用 Mono.Android.Export，否则将导致编译器错误。
 [assembly: ExportRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer))]
-namespace TorchView.Droid.Components
+namespace TorchView4Droid.Components
 {
     public class HybridWebViewRenderer : WebViewRenderer
     {

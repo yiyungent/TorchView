@@ -15,6 +15,8 @@ namespace Demo
 
             MainPage = new MainPage();
 
+            var webFile = DependencyService.Get<IWebFile>();
+
             // 默认监听 12531 端口
             this._webServer = WebServerExtensions.Get();
         }

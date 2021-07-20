@@ -1,7 +1,7 @@
 ﻿using Android.Webkit;
 using Xamarin.Forms.Platform.Android;
 
-namespace TorchView.Droid.Components
+namespace TorchView4Droid.Components
 {
     public class JavascriptWebViewClient : FormsWebViewClient
     {

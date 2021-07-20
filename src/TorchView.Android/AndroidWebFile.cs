@@ -10,10 +10,11 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 using System.IO;
+using TorchView;
 
 
-[assembly: Dependency(typeof(TorchView.Droid.AndroidWebFile))]
-namespace TorchView.Droid
+[assembly: Dependency(typeof(TorchView4Droid.AndroidWebFile))]
+namespace TorchView4Droid
 {
     public class AndroidWebFile : IWebFile
     {

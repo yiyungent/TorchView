@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("TorchView.Droid.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("TorchView4Droid.Resource", IsApplication=false)]
 
-namespace TorchView.Droid
+namespace TorchView4Droid
 {
 	
 	

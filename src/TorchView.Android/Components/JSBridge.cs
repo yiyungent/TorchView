@@ -3,7 +3,7 @@ using Android.Webkit;
 using Java.Interop;
 using TorchView.Components;
 
-namespace TorchView.Droid.Components
+namespace TorchView4Droid.Components
 {
     public class JSBridge : Java.Lang.Object
     {

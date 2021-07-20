@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="TorchView.Android">
+      <HintPath>..\TorchView.Android\bin\Release\TorchView.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
@@ -93,10 +96,6 @@
     <ProjectReference Include="..\Demo\Demo.csproj">
       <Project>{30F5D134-9D86-40F4-9241-3B649C7F2732}</Project>
       <Name>Demo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TorchView.Android\TorchView.Android.csproj">
-      <Project>{ee9b07fe-cd13-4f62-9be3-2aadf5fc3ead}</Project>
-      <Name>TorchView.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
