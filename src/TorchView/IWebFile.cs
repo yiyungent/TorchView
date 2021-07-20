@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace TorchView
@@ -13,7 +14,7 @@ namespace TorchView
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        string ReadFile(string filePath);
+        byte[] ReadFile(string filePath);
 
     }
 }

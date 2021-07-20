@@ -23,39 +23,64 @@ namespace TorchView4Droid
         /// </summary>
         /// <param name="filePath">相对路径 (相对于Web根目录)</param>
         /// <returns></returns>
-        public string ReadFile(string filePath)
+        public byte[] ReadFile(string filePath)
         {
-            string rtnStr = string.Empty;
+            MemoryStream memoryStream = new MemoryStream();
 
             Context context = Android.App.Application.Context;
             var assetManager = context.Assets;
-            System.IO.Stream stream = null;
+            System.IO.Stream assetStream = null;
+            byte[] rtnBuffer;
             try
             {
                 string webRootPath = WebConfig.WebRootPath;
                 // 使用 Path.Combine() 拼接异常, 始终是 /index.html
                 //filePath = System.IO.Path.Combine(webRootPath, filePath);
                 filePath = webRootPath + filePath;
-                stream = assetManager.Open(filePath);
-                rtnStr = ReadDataFromStream(stream);
+                assetStream = assetManager.Open(filePath);
+
+                assetStream.CopyTo(memoryStream);
+
+                long len = memoryStream.Length;
+
+                //rtnBuffer = new byte[len];
+
+                rtnBuffer = memoryStream.ToArray();
+
+
+                //using (BinaryReader reader = new BinaryReader(memoryStream))
+                //{
+                //    //string temp = reader.ReadString();
+                //    rtnBuffer = reader.ReadBytes((int)len);
+                //}
+                //using (BinaryReader reader = new BinaryReader(memoryStream))
+                //{
+                //    rtnBuffer = ReadAllBytes(reader);
+                //}
+
             }
             catch (Exception ex)
             {
-
+                throw new Exception("AndroidWebFile.ReadFile: assetManager.Open(filePath)", ex);
             }
 
-            return rtnStr;
+            return rtnBuffer;
         }
 
-        private string ReadDataFromStream(Stream stream)
+        public byte[] ReadAllBytes(BinaryReader reader)
         {
-            string content = string.Empty;
-            using (StreamReader sr = new StreamReader(stream))
+            const int bufferSize = 4096;
+            using (var ms = new MemoryStream())
             {
-                content = sr.ReadToEnd();
+                byte[] buffer = new byte[bufferSize];
+                int count;
+                while ((count = reader.Read(buffer, 0, buffer.Length)) != 0)
+                    ms.Write(buffer, 0, count);
+                return ms.ToArray();
             }
 
-            return content;
         }
+
+
     }
 }
