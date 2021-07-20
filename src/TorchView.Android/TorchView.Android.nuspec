@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TorchView.Android</id>
+    <version>0.1.0</version>
+    <title>TorchView.Android</title>
+    <authors>yiyun</authors>
+    <owners>yiyun</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>http://github.com/yiyungent/TorchView</projectUrl>
+	<repository type="git" url="https://github.com/yiyungent/TorchView.git" branch="main" />
+    <description>Hybrid App for Xamarin, Xamarin combined with Vue.js and more.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright (c) 2021-present yiyun</copyright>
+    <tags>Xamarin Vue.js Hybrid</tags>
+	<dependencies>
+    <dependency id="TorchView" version="0.1.0" />
+  </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\TorchView.Android.dll" target="lib" />
+    <file src="bin\Release\TorchView.Android.xml" target="bin\Release\TorchView.Android.xml" />
+  </files>
+</package>

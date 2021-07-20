@@ -36,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\TorchView.Android.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -57,13 +58,25 @@
       <Version>4.8.0.1451</Version>
     </PackageReference>
   </ItemGroup>
+  <!-- TODO: 失败: 方便开发debug, 与发布到 nuget Start -->
+  <!--<ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <PackageReference Include="TorchView">
+      <Version>0.1.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <ProjectReference Include="..\TorchView\TorchView.csproj">
+      <Project>{bab589ef-dffe-41f4-b1f9-b52446e98402}</Project>
+      <Name>TorchView</Name>
+    </ProjectReference>
+  </ItemGroup>-->
+  <!-- 方便开发debug, 与发布到 nuget End -->
   <ItemGroup>
     <ProjectReference Include="..\TorchView\TorchView.csproj">
       <Project>{bab589ef-dffe-41f4-b1f9-b52446e98402}</Project>
       <Name>TorchView</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
