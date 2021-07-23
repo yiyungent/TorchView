@@ -61,7 +61,12 @@ namespace TorchView4Droid.Components
         }
         #endregion
 
-        
+
+        public override bool ShouldOverrideUrlLoading(WebView view, IWebResourceRequest request)
+        {
+            return base.ShouldOverrideUrlLoading(view, request);
+        }
+
 
     }
 }

@@ -14,7 +14,11 @@ namespace Demo
         {
             InitializeComponent();
 
-            this.hybridWebView.RegisterAction(data => DisplayAlert("Alert", "Hello " + data, "OK"));
+            this.hybridWebView.RegisterAction(data => DisplayAlert("Alert", "RegisterAction " + data, "OK"));
+
+            this.hybridWebView.RegisterFunc(data => { return "RegisterFunc " + data; });
+
+
         }
     }
 }

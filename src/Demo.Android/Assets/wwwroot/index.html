@@ -1,30 +1,43 @@
 ﻿<html>
 <body>
-<!-- 注意: Android 安全限制, 只能是 https -->
-<!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
-<script src="libs/jquery-2.1.4.min.js"></script>
-<h1>HybridWebView Test</h1>
-<br/>
-Enter name: <input type="text" id="name"/>
-<br/>
-<br/>
-<a href="https://github.com/yiyungent/TorchView">TorchView</a>
-<button type="button" onclick="javascript: invokeCSCode($('#name').val());">Invoke C# Code</button>
-<br/>
-<p id="result">Result:</p>
-<script type="text/javascript">
-	function log(str) {
-		$('#result').text($('#result').text() + " " + str);
-	}
+	<!-- 注意: Android 安全限制, 只能是 https -->
+	<!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+	<script src="libs/jquery-2.1.4.min.js"></script>
+	<h1>HybridWebView Test</h1>
+	<br />
+	Enter name: <input type="text" id="name" />
+	<br />
+	<br />
+	<a href="https://github.com/yiyungent/TorchView">TorchView</a>
+	<button type="button" onclick="javascript: invokeCSCode($('#name').val());">Invoke C# Code</button>
+	<br />
+	<button onclick="javascript: invokeCSCodeWithRtn($('#name').val());">Invoke C# Code With Return</button>
+	<br />
+	<p id="result">Result:</p>
+	<script type="text/javascript">
 
-	function invokeCSCode(data) {
-		try {
-			log("Sending Data:" + data);
-			invokeCSharpAction(data);
-		} catch (err) {
-			log(err);
+		function log(str) {
+			$('#result').text($('#result').text() + " " + str);
 		}
-	}
-</script>
+
+		function invokeCSCode(data) {
+			try {
+				//log("Sending Data:" + data);
+				invokeCSharpAction(data);
+			} catch (err) {
+				log(err);
+			}
+		}
+
+		function invokeCSCodeWithRtn(data) {
+			try {
+				var result = invokeCSharpFunc(data);
+				invokeCSharpAction(result);
+			} catch (err) {
+				log(err);
+			}
+		}
+
+	</script>
 </body>
 </html>

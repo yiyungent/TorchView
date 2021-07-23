@@ -25,5 +25,19 @@ namespace TorchView4Droid.Components
                 ((HybridWebView)hybridRenderer.Element).InvokeAction(data);
             }
         }
+
+        [JavascriptInterface]
+        [Export("invokeFunc")]
+        public string InvokeFunc(string data)
+        {
+            HybridWebViewRenderer hybridRenderer;
+
+            if (hybridWebViewRenderer != null && hybridWebViewRenderer.TryGetTarget(out hybridRenderer))
+            {
+                return ((HybridWebView)hybridRenderer.Element).InvokeFunc(data);
+            }
+
+            return null;
+        }
     }
 }
