@@ -11,8 +11,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TorchView" Version="0.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
+
+  <!-- 方便开发debug,与发布到nuget -->
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <PackageReference Include="TorchView" Version="0.1.1" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <ProjectReference Include="..\TorchView\TorchView.csproj" />
+  </ItemGroup>
+  
 </Project>
