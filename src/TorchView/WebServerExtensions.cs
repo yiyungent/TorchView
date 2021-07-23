@@ -9,7 +9,7 @@ namespace TorchView
     {
         public static IWebServer Get()
         {
-            return Get(WebConfig.Port);
+            return Get(TorchConfig.Port);
         }
 
         public static IWebServer Get(string port)

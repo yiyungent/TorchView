@@ -12,7 +12,10 @@ using System.Text;
 
 namespace TorchView4Droid.Components
 {
-    public class MyWebChromeClient : Android.Webkit.WebChromeClient
+    /// <summary>
+    /// WebChromeClient 主要辅助 WebView 处理J avaScript 的对话框、网站 Logo、网站 title、load 进度等处理
+    /// </summary>
+    public class TorchWebChromeClient : Android.Webkit.WebChromeClient
     {
 
         public override void OnProgressChanged(WebView view, int newProgress)
@@ -30,6 +33,7 @@ namespace TorchView4Droid.Components
 
             base.OnProgressChanged(view, newProgress);
         }
+
 
     }
 }

@@ -33,7 +33,7 @@ namespace TorchView4Droid
             byte[] rtnBuffer;
             try
             {
-                string webRootPath = WebConfig.WebRootPath;
+                string webRootPath = TorchConfig.WebRootPath;
                 // 使用 Path.Combine() 拼接异常, 始终是 /index.html
                 //filePath = System.IO.Path.Combine(webRootPath, filePath);
                 filePath = webRootPath + filePath;
@@ -65,6 +65,34 @@ namespace TorchView4Droid
             }
 
             return rtnBuffer;
+        }
+
+        public System.IO.Stream ReadFileToStream(string filePath)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+
+            Context context = Android.App.Application.Context;
+            var assetManager = context.Assets;
+            System.IO.Stream assetStream = null;
+            try
+            {
+                string webRootPath = TorchConfig.WebRootPath;
+                // 使用 Path.Combine() 拼接异常, 始终是 /index.html
+                //filePath = System.IO.Path.Combine(webRootPath, filePath);
+                filePath = webRootPath + filePath;
+                assetStream = assetManager.Open(filePath);
+
+                assetStream.CopyTo(memoryStream);
+
+                long len = memoryStream.Length;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("AndroidWebFile.ReadFileToStream: assetManager.Open(filePath)", ex);
+            }
+
+            return memoryStream;
         }
 
         public byte[] ReadAllBytes(BinaryReader reader)

@@ -166,31 +166,7 @@ namespace TorchView
 
         private void ProcessContentType(HttpListenerResponse response, string urlPath)
         {
-            // https://www.cnblogs.com/SingleCat/p/5141716.html
-            Dictionary<string, string> dicMimeTypes = new Dictionary<string, string>
-            {
-                { ".xml", "text/xml" },
-                { ".woff", "application/x-font-woff" },
-                { ".woff2", "application/x-font-woff" },
-                { ".ttf", "application/x-font-truetype" },
-                { ".js", "application/x-javascript" },
-                { ".svg", "image/svg+xml" },
-                { ".tif", "image/tiff" },
-                { ".json", "application/json" },
-                { ".html" , "text/html" },
-                { ".eot", "application/vnd.ms-fontobject" },
-                { ".otf", "font/opentype" },
-                { ".css", "text/css" }
-            };
-
-            foreach (var mimeType in dicMimeTypes)
-            {
-                if (urlPath.EndsWith(mimeType.Key))
-                {
-                    response.ContentType = mimeType.Value;
-                    break;
-                }
-            }
+            response.ContentType = Utils.HttpUtil.GetContentType(urlPath);
         }
 
 

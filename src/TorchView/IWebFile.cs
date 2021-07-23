@@ -16,5 +16,7 @@ namespace TorchView
         /// <returns></returns>
         byte[] ReadFile(string filePath);
 
+        System.IO.Stream ReadFileToStream(string filePath);
+
     }
 }
