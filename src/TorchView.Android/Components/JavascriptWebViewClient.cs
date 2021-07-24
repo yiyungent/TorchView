@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Android.Content;
 using Android.Content.Res;
 using Android.Webkit;
 using TorchView;
@@ -51,8 +53,15 @@ namespace TorchView4Droid.Components
                 }
                 catch (Exception ex)
                 {
-                    // ignore
-                    throw ex;
+                    if (ex.InnerException is Java.IO.FileNotFoundException)
+                    {
+                        // 404
+                        // ignore
+                    }
+                    else
+                    {
+                        throw ex;
+                    }
                 }
             }
             #endregion

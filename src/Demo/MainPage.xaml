@@ -7,7 +7,10 @@
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Welcome to TorchView !" FontSize="16" BackgroundColor="LightBlue"></Label>
 
-        <com:HybridWebView x:Name="hybridWebView" Uri="http://localhost:12531/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
+        <com:HybridWebView x:Name="hybridWebView" Uri="http://torchview/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
+
+        <!--<com:HybridWebView x:Name="hybridWebView" Uri="http://localhost:12531/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>-->
+
     </StackLayout>
 
 </ContentPage>

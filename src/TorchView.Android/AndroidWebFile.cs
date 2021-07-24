@@ -69,8 +69,6 @@ namespace TorchView4Droid
 
         public System.IO.Stream ReadFileToStream(string filePath)
         {
-            MemoryStream memoryStream = new MemoryStream();
-
             Context context = Android.App.Application.Context;
             var assetManager = context.Assets;
             System.IO.Stream assetStream = null;
@@ -82,17 +80,13 @@ namespace TorchView4Droid
                 filePath = webRootPath + filePath;
                 assetStream = assetManager.Open(filePath);
 
-                assetStream.CopyTo(memoryStream);
-
-                long len = memoryStream.Length;
-
             }
             catch (Exception ex)
             {
                 throw new Exception("AndroidWebFile.ReadFileToStream: assetManager.Open(filePath)", ex);
             }
 
-            return memoryStream;
+            return assetStream;
         }
 
         public byte[] ReadAllBytes(BinaryReader reader)

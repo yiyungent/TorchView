@@ -5,6 +5,7 @@
       android:label="Demo.Android" 
       android:theme="@style/MainTheme"
       android:usesCleartextTraffic="true"></application>
+      <!-- android:usesCleartextTraffic="true" -->
       <!-- Android 9.0+ HTTPS -->
       <!-- net::ERR_CLEARTEXT_NOT_PERMITTED -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
