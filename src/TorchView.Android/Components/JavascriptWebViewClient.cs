@@ -2,6 +2,7 @@
 using System.IO;
 using Android.Content;
 using Android.Content.Res;
+using Android.OS;
 using Android.Webkit;
 using TorchView;
 using Xamarin.Forms.Platform.Android;
@@ -23,7 +24,15 @@ namespace TorchView4Droid.Components
         public override void OnPageFinished(WebView view, string url)
         {
             base.OnPageFinished(view, url);
-            view.EvaluateJavascript(_javascript, null);
+            //view.EvaluateJavascript(_javascript, null);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat)
+            {
+                view.EvaluateJavascript(_javascript, null);
+            }
+            else
+            {
+                view.LoadUrl(_javascript);
+            }
         }
 
         #region 拦截请求

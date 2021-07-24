@@ -6,6 +6,7 @@
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Welcome to TorchView !" FontSize="16" BackgroundColor="LightBlue"></Label>
+        <Button Clicked="Button_Clicked" Text="Invoke JavaScript Code"></Button>
 
         <com:HybridWebView x:Name="hybridWebView" Uri="http://torchview/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
 

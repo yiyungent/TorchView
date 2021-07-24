@@ -1,28 +1,47 @@
-﻿<html>
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Hello, world!</title>
+</head>
 <body>
-	<!-- 注意: Android 安全限制, 只能是 https -->
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!-- Note: Android 9.0+, only https -->
 	<!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
 	<script src="libs/jquery-2.1.4.min.js"></script>
-	<h1>HybridWebView Test</h1>
-	<br />
-	Enter name: <input type="text" id="name" />
-	<br />
-	<br />
-	<a href="https://github.com/yiyungent/TorchView">TorchView</a>
-	<button type="button" onclick="javascript: invokeCSCode($('#name').val());">Invoke C# Code</button>
-	<br />
-	<button onclick="javascript: invokeCSCodeWithRtn($('#name').val());">Invoke C# Code With Return</button>
-	<br />
-	<p id="result">Result:</p>
+
+	<div class="container">
+		<h1>HybridWebView Test</h1>
+		<div>
+			Enter name: <input type="text" id="name" />
+		</div>
+		<div>
+			<div><a href="https://github.com/yiyungent/TorchView">TorchView</a></div>
+			<div><a href="https://github.com/yiyungent/TorchView">TorchView</a></div>
+		</div>
+		<div>
+			<button type="button" onclick="javascript: invokeCSCode($('#name').val());">Invoke C# Code</button>
+			<br />
+			<button onclick="javascript: invokeCSCodeWithRtn($('#name').val());">Invoke C# Code With Return</button>
+		</div>
+		<div id="log">Log:</div>
+	</div>
+
 	<script type="text/javascript">
 
+
+
 		function log(str) {
-			$('#result').text($('#result').text() + " " + str);
+			$('#log').text($('#log').text() + " " + str);
 		}
 
 		function invokeCSCode(data) {
 			try {
-				//log("Sending Data:" + data);
 				invokeCSharpAction(data);
 			} catch (err) {
 				log(err);
@@ -39,5 +58,6 @@
 		}
 
 	</script>
+
 </body>
 </html>

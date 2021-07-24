@@ -20,5 +20,12 @@ namespace Demo
 
 
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            string result = await this.hybridWebView.EvaluateJavaScriptAsync("document.getElementById('name').value");
+
+            await DisplayAlert("Alert", "Get name value: " + result, "OK");
+        }
     }
 }
