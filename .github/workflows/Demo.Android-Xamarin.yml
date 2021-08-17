@@ -1,0 +1,19 @@
+name: Demo.Android Xamarin CI
+on: [push]
+jobs:
+  Android:
+    runs-on: macos-latest    
+    steps:
+    - name: Checkout Source
+      uses: actions/checkout@v1     
+
+    - name: Android
+      run: |
+        nuget restore
+        msbuild src/Demo.Android/Demo.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug 
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Android App
+        path: src/Demo.Android/bin/Debug/com.companyname.demo-Signed.apk
