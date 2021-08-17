@@ -50,42 +50,20 @@ PM> Install-Package TorchView.Android
 > If the installation is not successful through nuget, please try to download in `Releases` and manually add a reference to the dll.
 
 
-
-> 3.Find `Xamarin.Forms` and add the following code in `App.xaml.cs`, which will start a WebServer locally to process http requests from the local.
-
-```C#
-public partial class App : Application 
-{
-    private IWebServer _webServer;
-
-    public App()
-    {
-        InitializeComponent();
-
-        MainPage = new MainPage();
-
-        //var webFile = DependencyService.Get<IWebFile>();
-
-        // Listen on port 12531 by default
-        this._webServer = WebServerExtensions.Get();
-    }
-
-    protected override void OnStart()
-    {
-        this._webServer.Start();
-    }
-}
-```
-
-
-
-> 4.Find `Xamarin.Android`, add your web file to `Assets/wwwroot` (wwwroot needs to be created)
+> 3.Find `Xamarin.Android`, add your web file to `Assets/wwwroot` (wwwroot needs to be created)
 
 ![image-20210723093820791](screenshots/image-20210723093820791.png)
 
 
 
-> 5.Find `Xamarin.Forms`, add `HybridWebView` to the page you need,
+> __Note__  
+>  
+> ![Snipaste_2021-08-17_12-19-01.png](screenshots/Snipaste_2021-08-17_12-19-01.png)
+> 
+
+
+
+> 4.Find `Xamarin.Forms`, add `HybridWebView` to the page you need,
 
 ```xaml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -96,14 +74,15 @@ public partial class App : Application
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Welcome to TorchView !" FontSize="16" BackgroundColor="LightBlue"></Label>
+        <Button Clicked="Button_Clicked" Text="Invoke JavaScript Code"></Button>
 
-        <com:HybridWebView x:Name="hybridWebView" Uri="http://localhost:12531/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
+        <com:HybridWebView x:Name="hybridWebView" Uri="http://torchview/index.html" WidthRequest="1000" HeightRequest="1000"></com:HybridWebView>
     </StackLayout>
 
 </ContentPage>
 ```
 
-> 6.Finished, now you can start your app
+> 5.Finished, now you can start your app
 
 
 
@@ -112,6 +91,31 @@ public partial class App : Application
 > In fact, you can use `this.hybridWebView` in `MainPage.xaml.cs` to complete more operations
 
 
+```C#
+namespace Demo
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+
+            this.hybridWebView.RegisterAction(data => DisplayAlert("Alert", "RegisterAction " + data, "OK"));
+
+            this.hybridWebView.RegisterFunc(data => { return "RegisterFunc " + data; });
+
+
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            string result = await this.hybridWebView.EvaluateJavaScriptAsync("document.getElementById('name').value");
+
+            await DisplayAlert("Alert", "Get name value: " + result, "OK");
+        }
+    }
+}
+```
 
 
 
@@ -139,7 +143,7 @@ public partial class App : Application
 
 ## Environment
 
-- Development environment: Visual Studio Community 2019,  Xamarin Development Kit
+- Development: Visual Studio Community 2019,  Xamarin Development Kit
 
 
 
@@ -147,7 +151,7 @@ public partial class App : Application
 
 
 
-## Related projects
+## Related Projects
 
 - [yiyungent/OneTree.App](https://github.com/yiyungent/OneTree.App)
 
@@ -173,4 +177,4 @@ We accept donations through these channels:
 **TorchView** © [yiyun](https://github.com/yiyungent), Released under the [Apache-2.0](./LICENSE) License.<br>
 Authored and maintained by yiyun with help from contributors ([list](https://github.com/yiyungent/TorchView/contributors)).
 
-> GitHub [@yiyungent](https://github.com/yiyungent)
+> GitHub [@yiyungent](https://github.com/yiyungent) Gitee [@yiyungent](https://gitee.com/yiyungent)
